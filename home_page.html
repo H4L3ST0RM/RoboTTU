@@ -1,0 +1,53 @@
+<!--
+Author: Aaron Trusty
+CS 4365
+Dr. Mengel
+Fall 2016
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+function vertChange(val){
+	document.getElementById('vertValue').innerHTML = val;
+}
+function horzChange(val){
+	document.getElementById('horzVal').innerHTML = val;
+}
+</script>
+</head>
+<img src="build.jpg" style="float:left;width:400px;height:400px;" align = "top">
+
+<!--For formatting-->
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<!--End formatting-->
+
+<body>
+<i> Autopilot: </i>
+<label class="switch">
+  <input type="checkbox">
+  <div class="slider round"></div>
+</label>
+
+<br /><br />
+
+<input type="range" min="0" max="100" value="0" step = "10" onchange="vertChange(this.value)"/>
+<input type="range" min="0" max="100" value="0" step = "10" onchange="horzChange(this.value)"/>
+<br /><br />
+
+Vert Value = <span id="vertValue">0</span>
+Horz Value = <span id="horzVal">0</span>
+
+</body>
+</html>
