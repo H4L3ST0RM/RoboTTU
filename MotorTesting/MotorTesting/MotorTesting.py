@@ -20,7 +20,14 @@ def init():
     GPIO.setup(RightBackward, GPIO.OUT)
     GPIO.setup(LeftForward, GPIO.OUT)
     GPIO.setup(LeftBackward, GPIO.OUT)
-
+    RF = GPIO.PWM(RightForward, 0)
+    RB = GPIO.PWM(RightBackward, 0)
+    LF = GPIO.PWM(LeftForward, 0)
+    LB = GPIO.PWM(LeftBackward, 0)
+    RF.start(0)
+    RB.start(0)
+    LF.start(0)
+    LB.start(0)
 
 def forward(x):
     GPIO.output(RightForward, GPIO.HIGH)
@@ -53,6 +60,9 @@ def turnLeft(x):
     time.sleep(x)
     GPIO.output(LeftBackward, GPIO.LOW)
     GPIO.output(RightForward, GPIO.LOW)
+
+
+while True:
 
 print "forward motor "
 forward(2)
