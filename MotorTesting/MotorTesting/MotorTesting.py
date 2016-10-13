@@ -6,7 +6,6 @@ import RPi.GPIO as GPIO
 
 mode=GPIO.getmode()
 print " mode ="+str(mode)
-GPIO.cleanup()
 
 RightForward = 24
 RightBackward = 26
