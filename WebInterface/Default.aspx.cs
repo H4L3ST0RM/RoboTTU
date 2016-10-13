@@ -13,10 +13,5 @@ namespace RoboTTU
         {
 
         }
-
-        protected void btnTurnLeft_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 }
