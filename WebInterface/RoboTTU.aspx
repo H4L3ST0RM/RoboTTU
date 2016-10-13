@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RoboTTU.aspx.cs" Inherits="RoboTTU.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RoboTTU.aspx.cs" %>
 
 <!DOCTYPE html>
 
@@ -19,7 +19,7 @@
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell HorizontalAlign="Right" Width="50%">
-                    <asp:Button ID="btnTurnLeft" Text="Turn Left" runat="server" OnClick="btnTurnLeft_Click"/>&nbsp;
+                    <asp:Button ID="btnTurnLeft" Text="Turn Left" runat="server" />&nbsp;
                     <asp:Button ID="btnForward" Text="Forward" runat="server"/>
                 </asp:TableCell>
                 <asp:TableCell HorizontalAlign="Left">
