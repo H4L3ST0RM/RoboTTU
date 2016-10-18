@@ -36,7 +36,8 @@ Rover
 * Install Raspbian-Jessie on the Raspberry Pi
 * Install Python
 * Install RPi.GPIO
-*Copy WebClient.py to the Pi
-*Copy Motor.py to the Pi
-*Run command ‘python WebClient.py’
-* Not available yet
+* Copy WebClient.py to the Pi*
+* Copy Motor.py to the Pi*
+* Run command ‘python WebClient.py’*
+
+Not available yet
