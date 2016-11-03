@@ -30,6 +30,8 @@ Software recommended for further development:
 * vim/nano/emacs
 
 Installation:
+* Must install rubygems
+* Must install twitter api
 
 Server
 * Install Windows Server on the server
