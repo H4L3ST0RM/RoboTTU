@@ -20,6 +20,9 @@ Software Required (latest version unless otherwise specified):
 * Windows Server (.NET Framework and IIS is included)
 * Web Browser of your choice
 * TensorFlow
+* Ruby 64bit
+* Ruby gems
+* Twitter API
 
 Software recommended for further development:
 * Visual Studio
