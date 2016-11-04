@@ -21,3 +21,23 @@ while 1:
         if line[0] == "FORWARD":
             print "received FORWARD command"
             Socket.send("RECEIVED\r\n")
+
+        if line[0] == "BACKWARD":
+            print "received BACKWARD command"
+            Socket.send("RECEIVED\r\n")
+
+        if line[0] == "TREADLEFT":
+            print "received TREADLEFT command"
+            Socket.send("RECEIVED\r\n")
+
+        if line[0] == "TREADRIGHT":
+            print "received TREADRIGHT command"
+            Socket.send("RECEIVED\r\n")
+
+        if line[0] == "CAMERARIGHT":
+            print "received CAMERARIGHT command"
+            Socket.send("RECEIVED\r\n")
+
+        if line[0] == "CAMERALEFT":
+            print "received CAMERALEFT command"
+            Socket.send("RECEIVED\r\n")
