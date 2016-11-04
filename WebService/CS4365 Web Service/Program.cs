@@ -23,6 +23,9 @@ namespace CS4365_Web_Service
                 var writer = new StreamWriter(stream);
                 string input;
 
+                writer.WriteLine("FORWARD");
+                writer.Flush();
+
                 while (client.Connected && (input = reader.ReadLine()) != null)
                 {
                     Console.WriteLine(input);

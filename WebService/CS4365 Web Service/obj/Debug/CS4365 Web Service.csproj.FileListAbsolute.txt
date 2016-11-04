@@ -1,1 +1,7 @@
 c:\users\zgrum\onedrive\documents\visual studio 2015\Projects\CS4365 Web Service\CS4365 Web Service\bin\Debug\CS4365 Web Service.exe.config
+C:\Users\zgrum\OneDrive\Documents\GitHub\RoboTTU\WebService\CS4365 Web Service\bin\Debug\CS4365 Web Service.exe.config
+C:\Users\zgrum\OneDrive\Documents\GitHub\RoboTTU\WebService\CS4365 Web Service\bin\Debug\CS4365 Web Service.exe
+C:\Users\zgrum\OneDrive\Documents\GitHub\RoboTTU\WebService\CS4365 Web Service\bin\Debug\CS4365 Web Service.pdb
+C:\Users\zgrum\OneDrive\Documents\GitHub\RoboTTU\WebService\CS4365 Web Service\obj\Debug\CS4365 Web Service.csprojResolveAssemblyReference.cache
+C:\Users\zgrum\OneDrive\Documents\GitHub\RoboTTU\WebService\CS4365 Web Service\obj\Debug\CS4365 Web Service.exe
+C:\Users\zgrum\OneDrive\Documents\GitHub\RoboTTU\WebService\CS4365 Web Service\obj\Debug\CS4365 Web Service.pdb
