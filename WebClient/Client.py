@@ -2,7 +2,7 @@ import sys
 import socket
 import string
 
-Server = "99.64.48.184"
+Server = "127.0.0.1"
 Port = 9001
 buffer = ""
 

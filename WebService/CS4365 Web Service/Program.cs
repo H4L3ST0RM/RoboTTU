@@ -16,15 +16,20 @@ namespace CS4365_Web_Service
 
             while (true)
             {
+                Console.WriteLine("begin listening");
                 var client = _robotListener.AcceptTcpClient();
+                Console.WriteLine("accepted connection");
                 var stream = client.GetStream();
 
                 var reader = new StreamReader(stream);
                 var writer = new StreamWriter(stream);
                 string input;
+                Console.WriteLine("stream objects and things");
 
                 writer.WriteLine("FORWARD");
                 writer.Flush();
+
+                Console.WriteLine("writing to socket");
 
                 while (client.Connected && (input = reader.ReadLine()) != null)
                 {
