@@ -22,7 +22,7 @@ namespace CS4365_Web_Service
                 var reader = new StreamReader(stream);
                 var writer = new StreamWriter(stream) { AutoFlush = true };
                 string input;
-
+                writer.WriteLine("FORWARD");
                 while (client.Connected && (input = reader.ReadLine()) != null)
                 {
                     var inputTokenArray = input.Split(' ');
@@ -30,23 +30,13 @@ namespace CS4365_Web_Service
                     switch (inputTokenArray[0])
                     {
                         case "FORWARD":
-                            writer.WriteLine($"FORWARD {inputTokenArray[1]}");
-                            Console.WriteLine("Processed FORWARD command");
-                            break;
                         case "BACKWARD":
-                            writer.WriteLine($"BACKWARD {inputTokenArray[1]}");
-                            break;
                         case "TREADLEFT":
-                            writer.WriteLine($"TREADLEFT {inputTokenArray[1]}");
-                            break;
                         case "TREADRIGHT":
-                            writer.WriteLine($"TREADRIGHT {inputTokenArray[1]}");
-                            break;
                         case "CAMERALEFT":
-                            writer.WriteLine($"CAMERALEFT {inputTokenArray[1]}");
-                            break;
                         case "CAMERARIGHT":
-                            writer.WriteLine($"CAMERARIGHT {inputTokenArray[1]}");
+                            writer.WriteLine($"{inputTokenArray[0]} {inputTokenArray[1]}");
+                            Console.WriteLine($"Processed {inputTokenArray[0]} command");
                             break;
                         default:
                             break;
