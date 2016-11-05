@@ -14,19 +14,36 @@ namespace CS4365_Web_Service
         {
             Initialize();
 
+            // Main loop
             while (true)
             {
+                // Establish objects necessary to manipulate the connection
                 var client = _robotListener.AcceptTcpClient();
                 var stream = client.GetStream();
-
                 var reader = new StreamReader(stream);
                 var writer = new StreamWriter(stream) { AutoFlush = true };
                 string input;
+                Console.WriteLine("Robot connection established");
 
-                while (client.Connected && (input = reader.ReadLine()) != null)
+                // Listening sub-loop
+                while (true)
                 {
+                    try
+                    {
+                        input = reader.ReadLine();
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Robot connection error, listening for a new connection");
+                        break;
+                    }
+
+                    if (input == null) continue;
+
                     var inputTokenArray = input.Split(' ');
 
+                    // Ensure that incoming data matches protocol spec
+                    // Switch is used here because it implements a hash table at 5+ cases 
                     switch (inputTokenArray[0])
                     {
                         case "FORWARD":
@@ -47,6 +64,9 @@ namespace CS4365_Web_Service
             }
         }
 
+        /// <summary>
+        /// Initializes our listeners and sets them to listening
+        /// </summary>
         private static void Initialize()
         {
             _webListener = new TcpListener(IPAddress.Any, 9000);

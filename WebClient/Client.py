@@ -18,33 +18,33 @@ Buffer = ""
 
 
 # Parses a line of data sent by server
-def parse(input):
-    input = string.rstrip(input)
+def parse(data):
+    data = string.rstrip(data)
     # tokenize by space
-    input = string.split(input)
+    data = string.split(data)
 
     # stick API calls here
-    if input[0] == "FORWARD":
+    if data[0] == "FORWARD":
         print "received FORWARD command"
         Socket.send("RECEIVED\r\n")
 
-    if input[0] == "BACKWARD":
+    if data[0] == "BACKWARD":
         print "received BACKWARD command"
         Socket.send("RECEIVED\r\n")
 
-    if input[0] == "TURNLEFT":
+    if data[0] == "TURNLEFT":
         print "received TREADLEFT command"
         Socket.send("RECEIVED\r\n")
 
-    if input[0] == "TURNRIGHT":
+    if data[0] == "TURNRIGHT":
         print "received TREADRIGHT command"
         Socket.send("RECEIVED\r\n")
 
-    if input[0] == "CAMERARIGHT":
+    if data[0] == "CAMERARIGHT":
         print "received CAMERARIGHT command"
         Socket.send("RECEIVED\r\n")
 
-    if input[0] == "CAMERALEFT":
+    if data[0] == "CAMERALEFT":
         print "received CAMERALEFT command"
         Socket.send("RECEIVED\r\n")
 
@@ -83,6 +83,7 @@ while True:
         print "cannot connect to web service"
         reconnect()
         continue
+    print "connection established"
     ReconnectAttempts = 1
     #
 
@@ -107,4 +108,4 @@ while True:
 
         for line in lines:
             parse(line)
-
+    #
