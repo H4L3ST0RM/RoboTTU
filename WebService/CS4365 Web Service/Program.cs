@@ -22,7 +22,7 @@ namespace CS4365_Web_Service
                 var reader = new StreamReader(stream);
                 var writer = new StreamWriter(stream) { AutoFlush = true };
                 string input;
-                writer.WriteLine("FORWARD");
+
                 while (client.Connected && (input = reader.ReadLine()) != null)
                 {
                     var inputTokenArray = input.Split(' ');
@@ -31,8 +31,8 @@ namespace CS4365_Web_Service
                     {
                         case "FORWARD":
                         case "BACKWARD":
-                        case "TREADLEFT":
-                        case "TREADRIGHT":
+                        case "TURNLEFT":
+                        case "TURNRIGHT":
                         case "CAMERALEFT":
                         case "CAMERARIGHT":
                             writer.WriteLine($"{inputTokenArray[0]} {inputTokenArray[1]}");
