@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Net.Sockets;
 
 namespace RoboTTU
 {
@@ -17,6 +13,14 @@ namespace RoboTTU
         protected void btnTurnLeft_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void SendCommand(string command, int value)
+        {
+            using (TcpClient client = new TcpClient("127.0.0.1", 9000))
+            {
+                //client
+            }
         }
     }
 }
