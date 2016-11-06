@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RoboTTU.aspx.cs" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="RoboTTU.aspx.cs" Inherits="RoboTTU" %>
 
 <!DOCTYPE html>
 
@@ -19,12 +19,12 @@
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell HorizontalAlign="Right" Width="50%">
-                    <asp:Button ID="btnTurnLeft" Text="Turn Left" runat="server" />&nbsp;
-                    <asp:Button ID="btnForward" Text="Forward" runat="server"/>
+                    <asp:Button ID="btnTurnLeft" Text="Turn Left" OnClick="btnTurnLeft_Click" runat="server" />&nbsp;
+                    <asp:Button ID="btnForward" Text="Forward" OnClick="btnForward_Click" runat="server"/>
                 </asp:TableCell>
                 <asp:TableCell HorizontalAlign="Left">
-                    <asp:Button ID="btnReverse" Text="Reverse" runat="server"/>&nbsp;
-                    <asp:Button ID="btnTurnRight" Text="Right" runat="server"/>
+                    <asp:Button ID="btnReverse" Text="Reverse" OnClick="btnReverse_Click" runat="server"/>&nbsp;
+                    <asp:Button ID="btnTurnRight" Text="Right" OnClick="btnTurnRight_Click" runat="server"/>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
@@ -32,10 +32,10 @@
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell HorizontalAlign="Right" Width="50%">
-                    <asp:Button ID="btnCameraServoLeft" Text="Left" runat="server"/>
+                    <asp:Button ID="btnCameraServoLeft" Text="Left" OnClick="btnCameraServoLeft_Click" runat="server"/>
                 </asp:TableCell>
                 <asp:TableCell HorizontalAlign="Left">
-                    <asp:Button ID="btnCameraServoRight" Text="Right" runat="server"/>
+                    <asp:Button ID="btnCameraServoRight" Text="Right" OnClick="btnCameraServoRight_Click" runat="server"/>
                 </asp:TableCell>
             </asp:TableRow>
         </asp:Table>

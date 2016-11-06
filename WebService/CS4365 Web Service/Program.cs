@@ -19,11 +19,11 @@ namespace CS4365_Web_Service
             {
                 // Establish objects necessary to manipulate the connection
                 var client = _robotListener.AcceptTcpClient();
-                var stream = client.GetStream();
-                var reader = new StreamReader(stream);
-                var writer = new StreamWriter(stream) { AutoFlush = true };
-                string input;
+                var writer = new StreamWriter(client.GetStream()) { AutoFlush = true };
                 Console.WriteLine("Robot connection established");
+                var webClient = _webListener.AcceptTcpClient();
+                var reader = new StreamReader(webClient.GetStream());
+                string input;
 
                 // Listening sub-loop
                 while (true)
