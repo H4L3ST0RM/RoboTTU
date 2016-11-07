@@ -28,16 +28,16 @@ def parse(data):
         print "received FORWARD command"
         Socket.send("RECEIVED\r\n")
 
-    if data[0] == "BACKWARD":
-        print "received BACKWARD command"
+    if data[0] == "REVERSE":
+        print "received REVERSE command"
         Socket.send("RECEIVED\r\n")
 
     if data[0] == "TURNLEFT":
-        print "received TREADLEFT command"
+        print "received TURNLEFT command"
         Socket.send("RECEIVED\r\n")
 
     if data[0] == "TURNRIGHT":
-        print "received TREADRIGHT command"
+        print "received TURNRIGHT command"
         Socket.send("RECEIVED\r\n")
 
     if data[0] == "CAMERARIGHT":

@@ -19,26 +19,19 @@ namespace CS4365_Web_Service
             {
                 // Establish objects necessary to manipulate the connection
                 var client = _robotListener.AcceptTcpClient();
-                var writer = new StreamWriter(client.GetStream()) { AutoFlush = true };
+                var writer = new StreamWriter(client.GetStream()) {AutoFlush = true};
+                var robotConnected = true;
                 Console.WriteLine("Robot connection established");
-                var webClient = _webListener.AcceptTcpClient();
-                var reader = new StreamReader(webClient.GetStream());
-                string input;
 
-                // Listening sub-loop
-                while (true)
+                while (robotConnected)
                 {
-                    try
-                    {
-                        input = reader.ReadLine();
-                    }
-                    catch (Exception)
-                    {
-                        Console.WriteLine("Robot connection error, listening for a new connection");
-                        break;
-                    }
+                    Console.WriteLine("Waiting on command from web site");
 
-                    if (input == null) continue;
+                    var webClient = _webListener.AcceptTcpClient();
+                    var reader = new StreamReader(webClient.GetStream());
+                    string input;
+
+                    if (!webClient.Connected || (input = reader.ReadLine()) == null) continue;
 
                     var inputTokenArray = input.Split(' ');
 
@@ -47,19 +40,25 @@ namespace CS4365_Web_Service
                     switch (inputTokenArray[0])
                     {
                         case "FORWARD":
-                        case "BACKWARD":
+                        case "REVERSE":
                         case "TURNLEFT":
                         case "TURNRIGHT":
                         case "CAMERALEFT":
                         case "CAMERARIGHT":
-                            writer.WriteLine($"{inputTokenArray[0]} {inputTokenArray[1]}");
-                            Console.WriteLine($"Processed {inputTokenArray[0]} command");
+                            try
+                            {
+                                writer.WriteLine($"{inputTokenArray[0]} {inputTokenArray[1]}");
+                                Console.WriteLine($"Processed {inputTokenArray[0]} command");
+                            }
+                            catch (Exception)
+                            {
+                                robotConnected = false;
+                                Console.WriteLine("Lost connection to robot, reconnecting");
+                            }
                             break;
                         default:
                             break;
                     }
-
-                    Console.WriteLine(input);
                 }
             }
         }
