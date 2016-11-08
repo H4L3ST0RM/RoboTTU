@@ -38,6 +38,9 @@
                     <asp:Button ID="btnCameraServoRight" Text="Right" OnClick="btnCameraServoRight_Click" runat="server"/>
                 </asp:TableCell>
             </asp:TableRow>
+            <asp:TableRow runat="server">
+                <asp:TableCell ID="lblStatus" HorizontalAlign="Center" runat="server" ColumnSpan="2"></asp:TableCell>
+            </asp:TableRow>
         </asp:Table>
     </form>
 </body>

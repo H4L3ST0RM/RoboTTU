@@ -40,11 +40,19 @@ public partial class RoboTTU : System.Web.UI.Page
 
     private void SendCommand(string command, int value)
     {
-        using (var client = new TcpClient("127.0.0.1", 9000))
-        using (var writer = new StreamWriter(client.GetStream()) { AutoFlush = true })
+        try
         {
-            writer.WriteLine($"{command} {value}");
-            client.Close();
+            using (var client = new TcpClient("127.0.0.1", 9000))
+            using (var writer = new StreamWriter(client.GetStream()) {AutoFlush = true})
+            {
+                writer.WriteLine($"{command} {value}");
+                client.Close();
+            }
         }
+        catch
+        {
+            lblStatus.Text = "Error: Could not connect to web service";
+        }
+        lblStatus.Text = string.Empty;
     }
 }
