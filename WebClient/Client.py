@@ -3,7 +3,7 @@ import socket
 import string
 import sys
 import time
-
+import breezyCreate2 import Robot
 ############################################
 # Client Configuration
 ############################################
@@ -15,7 +15,7 @@ MaxReconnAttempts = 100
 # Initialize
 ReconnectAttempts = 1
 Buffer = ""
-
+Bot = Robot()
 
 # Parses a line of data sent by server
 def parse(data):
@@ -25,19 +25,31 @@ def parse(data):
 
     # stick API calls here
     if data[0] == "FORWARD":
-        print "received FORWARD command"
+		print "received FORWARD command"
+		Bot.setForwardSpeed(100)
+		time.sleep(1)
+		Bot.setForwardSpeed(0)
         Socket.send("RECEIVED\r\n")
 
-    if data[0] == "REVERSE":
+    if data[] == "REVERSE":
         print "received REVERSE command"
+        Bot.setForwardSpeed(-100)
+        time.sleep(1)
+        Bot.setforwardSpeed(0)
         Socket.send("RECEIVED\r\n")
 
     if data[0] == "TURNLEFT":
         print "received TURNLEFT command"
+        Bot.setTurnSpeed(100)
+        time.sleep(1)
+        bot.setTurnSpeed(0)
         Socket.send("RECEIVED\r\n")
 
     if data[0] == "TURNRIGHT":
         print "received TURNRIGHT command"
+        Bot.setTurnSpeed(-100)
+        time.sleep(1)
+        bot.setTurnSpeed(0)
         Socket.send("RECEIVED\r\n")
 
     if data[0] == "CAMERARIGHT":
