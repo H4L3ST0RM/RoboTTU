@@ -64,15 +64,15 @@ int main() {
                // turn left
                robot->drive(0.1, 1.0);
            }
-           else if (robot->isRightBumper()) {
-               playbackUpBeeper(create::Create* robot);
+           else if (robot->isRightBumper()) {               
                robot->drive(-0.1,0.5);
+               playbackUpBeeper(robot);
                usleep(2000000);//2 seconds
            }
                // Check bumpers
-           else if (robot->isLeftBumper()) {
-               playbackUpBeeper(create::Create* robot);
+           else if (robot->isLeftBumper()) {               
                robot->drive(-0.1,-0.5);
+               playbackUpBeeper(robot);
                usleep(2000000);//2 seconds
            }
            else {
@@ -95,17 +95,14 @@ int main() {
 //Function that plays a warning beep when the create2 is going backwards
 
 int playbackUpBeeper(create::Create* robot){
-    uint8_t songLength = 16;
+    uint8_t songLength = 4;
     //83 for backup beeper
-    uint8_t notes[16] = { 83, 83, 83, 83, 83, 83, 83, 83,
-                          83, 83, 83, 83, 83, 83, 83, 83 };
+    uint8_t notes[4] = {83, 83, 83, 83};
     float durations[songLength];
     for (int i = 0; i < songLength; i++) {
         durations[i] = 0.50;
     }
     robot->defineSong(0, songLength, notes, durations);
-    usleep(1000000);
     robot->playSong(0);
     return 0;
 }
-
