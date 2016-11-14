@@ -16,7 +16,7 @@ AUTHORS:
 LAST DATE MODIFIED:
   -11/13/2016 11:34 pm
 */
-
+int playbackUpBeeper(create::Create* robot);
 
 int main() {
    std::string port = "/dev/ttyUSB0";
@@ -65,11 +65,13 @@ int main() {
                robot->drive(0.1, 1.0);
            }
            else if (robot->isRightBumper()) {
+               playbackUpBeeper(create::Create* robot);
                robot->drive(-0.1,0.5);
                usleep(2000000);//2 seconds
            }
                // Check bumpers
            else if (robot->isLeftBumper()) {
+               playbackUpBeeper(create::Create* robot);
                robot->drive(-0.1,-0.5);
                usleep(2000000);//2 seconds
            }
@@ -89,3 +91,21 @@ int main() {
    delete robot;
    return 0;
 }
+
+//Function that plays a warning beep when the create2 is going backwards
+
+int playbackUpBeeper(create::Create* robot){
+    uint8_t songLength = 16;
+    //83 for backup beeper
+    uint8_t notes[16] = { 83, 83, 83, 83, 83, 83, 83, 83,
+                          83, 83, 83, 83, 83, 83, 83, 83 };
+    float durations[songLength];
+    for (int i = 0; i < songLength; i++) {
+        durations[i] = 0.50;
+    }
+    robot->defineSong(0, songLength, notes, durations);
+    usleep(1000000);
+    robot->playSong(0);
+    return 0;
+}
+
