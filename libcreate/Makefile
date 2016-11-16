@@ -48,13 +48,23 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/john/libcreate
+CMAKE_SOURCE_DIR = "/home/john/GitHub Projects/RoboTTU/libcreate"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/john/libcreate
+CMAKE_BINARY_DIR = "/home/john/GitHub Projects/RoboTTU/libcreate"
 
 #=============================================================================
 # Targets provided globally by CMake.
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -78,27 +88,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -124,9 +113,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/john/libcreate/CMakeFiles /home/john/libcreate/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/john/GitHub Projects/RoboTTU/libcreate/CMakeFiles" "/home/john/GitHub Projects/RoboTTU/libcreate/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/john/libcreate/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/home/john/GitHub Projects/RoboTTU/libcreate/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -153,6 +142,19 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
+
+#=============================================================================
+# Target rules for targets named move_turn
+
+# Build rule for target.
+move_turn: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 move_turn
+.PHONY : move_turn
+
+# fast build rule for target.
+move_turn/fast:
+	$(MAKE) -f CMakeFiles/move_turn.dir/build.make CMakeFiles/move_turn.dir/build
+.PHONY : move_turn/fast
 
 #=============================================================================
 # Target rules for targets named odom_example
@@ -206,6 +208,11 @@ create/fast:
 	$(MAKE) -f CMakeFiles/create.dir/build.make CMakeFiles/create.dir/build
 .PHONY : create/fast
 
+# Manual pre-install relink rule for target.
+create/preinstall:
+	$(MAKE) -f CMakeFiles/create.dir/build.make CMakeFiles/create.dir/preinstall
+.PHONY : create/preinstall
+
 #=============================================================================
 # Target rules for targets named obstacle_avoidance
 
@@ -218,6 +225,19 @@ obstacle_avoidance: cmake_check_build_system
 obstacle_avoidance/fast:
 	$(MAKE) -f CMakeFiles/obstacle_avoidance.dir/build.make CMakeFiles/obstacle_avoidance.dir/build
 .PHONY : obstacle_avoidance/fast
+
+#=============================================================================
+# Target rules for targets named move_straight
+
+# Build rule for target.
+move_straight: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 move_straight
+.PHONY : move_straight
+
+# fast build rule for target.
+move_straight/fast:
+	$(MAKE) -f CMakeFiles/move_straight.dir/build.make CMakeFiles/move_straight.dir/build
+.PHONY : move_straight/fast
 
 examples/bumper_example.o: examples/bumper_example.cpp.o
 
@@ -272,6 +292,60 @@ examples/create_demo.s: examples/create_demo.cpp.s
 examples/create_demo.cpp.s:
 	$(MAKE) -f CMakeFiles/create_demo.dir/build.make CMakeFiles/create_demo.dir/examples/create_demo.cpp.s
 .PHONY : examples/create_demo.cpp.s
+
+examples/move_straight.o: examples/move_straight.cpp.o
+
+.PHONY : examples/move_straight.o
+
+# target to build an object file
+examples/move_straight.cpp.o:
+	$(MAKE) -f CMakeFiles/move_straight.dir/build.make CMakeFiles/move_straight.dir/examples/move_straight.cpp.o
+.PHONY : examples/move_straight.cpp.o
+
+examples/move_straight.i: examples/move_straight.cpp.i
+
+.PHONY : examples/move_straight.i
+
+# target to preprocess a source file
+examples/move_straight.cpp.i:
+	$(MAKE) -f CMakeFiles/move_straight.dir/build.make CMakeFiles/move_straight.dir/examples/move_straight.cpp.i
+.PHONY : examples/move_straight.cpp.i
+
+examples/move_straight.s: examples/move_straight.cpp.s
+
+.PHONY : examples/move_straight.s
+
+# target to generate assembly for a file
+examples/move_straight.cpp.s:
+	$(MAKE) -f CMakeFiles/move_straight.dir/build.make CMakeFiles/move_straight.dir/examples/move_straight.cpp.s
+.PHONY : examples/move_straight.cpp.s
+
+examples/move_turn.o: examples/move_turn.cpp.o
+
+.PHONY : examples/move_turn.o
+
+# target to build an object file
+examples/move_turn.cpp.o:
+	$(MAKE) -f CMakeFiles/move_turn.dir/build.make CMakeFiles/move_turn.dir/examples/move_turn.cpp.o
+.PHONY : examples/move_turn.cpp.o
+
+examples/move_turn.i: examples/move_turn.cpp.i
+
+.PHONY : examples/move_turn.i
+
+# target to preprocess a source file
+examples/move_turn.cpp.i:
+	$(MAKE) -f CMakeFiles/move_turn.dir/build.make CMakeFiles/move_turn.dir/examples/move_turn.cpp.i
+.PHONY : examples/move_turn.cpp.i
+
+examples/move_turn.s: examples/move_turn.cpp.s
+
+.PHONY : examples/move_turn.s
+
+# target to generate assembly for a file
+examples/move_turn.cpp.s:
+	$(MAKE) -f CMakeFiles/move_turn.dir/build.make CMakeFiles/move_turn.dir/examples/move_turn.cpp.s
+.PHONY : examples/move_turn.cpp.s
 
 examples/obstacle_avoidance.o: examples/obstacle_avoidance.cpp.o
 
@@ -522,16 +596,17 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... list_install_components"
+	@echo "... move_turn"
 	@echo "... odom_example"
 	@echo "... rebuild_cache"
 	@echo "... install"
 	@echo "... bumper_example"
 	@echo "... create_demo"
 	@echo "... create"
-	@echo "... install/strip"
-	@echo "... list_install_components"
 	@echo "... install/local"
 	@echo "... obstacle_avoidance"
+	@echo "... move_straight"
 	@echo "... edit_cache"
 	@echo "... examples/bumper_example.o"
 	@echo "... examples/bumper_example.i"
@@ -539,6 +614,12 @@ help:
 	@echo "... examples/create_demo.o"
 	@echo "... examples/create_demo.i"
 	@echo "... examples/create_demo.s"
+	@echo "... examples/move_straight.o"
+	@echo "... examples/move_straight.i"
+	@echo "... examples/move_straight.s"
+	@echo "... examples/move_turn.o"
+	@echo "... examples/move_turn.i"
+	@echo "... examples/move_turn.s"
 	@echo "... examples/obstacle_avoidance.o"
 	@echo "... examples/obstacle_avoidance.i"
 	@echo "... examples/obstacle_avoidance.s"

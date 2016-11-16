@@ -62,9 +62,21 @@ add_executable(create_demo examples/create_demo.cpp)
 add_executable(bumper_example examples/bumper_example.cpp)
 add_executable(odom_example examples/odom_example.cpp)
 add_executable(obstacle_avoidance examples/obstacle_avoidance.cpp)
+add_executable(move_straight examples/move_straight.cpp)
+add_executable(move_turn examples/move_turn.cpp)
 
 # Specify libraries to link executable targets against
 target_link_libraries(create_demo
+  ${Boost_LIBRARIES}
+  create
+)
+
+target_link_libraries(move_turn
+  ${Boost_LIBRARIES}
+  create
+)
+
+target_link_libraries(move_straight
   ${Boost_LIBRARIES}
   create
 )

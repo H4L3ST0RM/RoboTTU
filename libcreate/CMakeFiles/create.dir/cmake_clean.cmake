@@ -8,6 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/create.dir/src/types.cpp.o"
   "libcreate.pdb"
   "libcreate.so"
+  "libcreate.pdb"
+  "CMakeFiles/CMakeRelink.dir/libcreate.so"
 )
 
 # Per-language clean rules from dependency scanning.

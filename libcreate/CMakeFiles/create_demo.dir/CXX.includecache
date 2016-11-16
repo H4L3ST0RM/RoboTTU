@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/john/libcreate/examples/create_demo.cpp
+/home/john/GitHub Projects/RoboTTU/libcreate/examples/create_demo.cpp
 create/create.h
-/home/john/libcreate/examples/create/create.h
+/home/john/GitHub Projects/RoboTTU/libcreate/examples/create/create.h
 
 include/create/create.h
 boost/shared_ptr.hpp

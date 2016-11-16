@@ -5,18 +5,17 @@ create::Create* robot;
 DESCRIPTION: This program will begin to roam when the "Hour" button is pushed.
 If will go straight until either, the light bumpers detect something, in which
 case it turns; the bumpers hit something, in which case it backs up and turns;
-or it detects a cliff/wheels are lifted, in which case it stops
-
+or it detects a cliff/wheels are lifted, in which case it stops. It will quit
+roam when either the hour button is pressed again ,and exit the program when the
+Clean button is pressed.
 Based on "create_demo" in "examples" files from libcreate library.
-
 AUTHORS:
   - John C. Hale
   - Santiago Estens
-
 LAST DATE MODIFIED:
   -11/13/2016 11:34 pm
 */
-
+int playbackUpBeeper(create::Create* robot);
 
 int main() {
    std::string port = "/dev/ttyUSB0";
@@ -65,13 +64,20 @@ int main() {
                robot->drive(0.1, 1.0);
            }
            else if (robot->isRightBumper()) {
-               robot->drive(-0.1,0.5);
+               robot->drive(-0.1,0.0);
+               playbackUpBeeper(robot);
                usleep(2000000);//2 seconds
+               robot->drive(0.1,1.0);
+               usleep(1000000);
            }
                // Check bumpers
            else if (robot->isLeftBumper()) {
-               robot->drive(-0.1,-0.5);
+               robot->drive(-0.1,0.0);
+               playbackUpBeeper(robot);
                usleep(2000000);//2 seconds
+               // turn right
+               robot->drive(0.1, -1.0);
+               usleep(1000000);
            }
            else {
                // drive straight
@@ -88,4 +94,19 @@ int main() {
    robot->disconnect();
    delete robot;
    return 0;
+}
+
+//Function that plays a warning beep when the create2 is going backwards
+
+int playbackUpBeeper(create::Create* robot){
+    uint8_t songLength = 4;
+    //83 for backup beeper
+    uint8_t notes[4] = {83, 83, 83, 83};
+    float durations[songLength];
+    for (int i = 0; i < songLength; i++) {
+        durations[i] = 0.50;
+    }
+    robot->defineSong(0, songLength, notes, durations);
+    robot->playSong(0);
+    return 0;
 }

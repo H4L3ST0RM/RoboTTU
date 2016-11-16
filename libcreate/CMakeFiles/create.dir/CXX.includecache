@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/john/libcreate/src/create.cpp
+/home/john/GitHub Projects/RoboTTU/libcreate/src/create.cpp
 boost/bind.hpp
 -
 boost/make_shared.hpp
@@ -20,43 +20,43 @@ ctime
 assert.h
 -
 create/create.h
-/home/john/libcreate/src/create/create.h
+/home/john/GitHub Projects/RoboTTU/libcreate/src/create/create.h
 
-/home/john/libcreate/src/data.cpp
+/home/john/GitHub Projects/RoboTTU/libcreate/src/data.cpp
 create/data.h
-/home/john/libcreate/src/create/data.h
+/home/john/GitHub Projects/RoboTTU/libcreate/src/create/data.h
 
-/home/john/libcreate/src/packet.cpp
+/home/john/GitHub Projects/RoboTTU/libcreate/src/packet.cpp
 create/packet.h
-/home/john/libcreate/src/create/packet.h
+/home/john/GitHub Projects/RoboTTU/libcreate/src/create/packet.h
 
-/home/john/libcreate/src/serial.cpp
+/home/john/GitHub Projects/RoboTTU/libcreate/src/serial.cpp
 iostream
 -
 create/serial.h
-/home/john/libcreate/src/create/serial.h
+/home/john/GitHub Projects/RoboTTU/libcreate/src/create/serial.h
 create/types.h
-/home/john/libcreate/src/create/types.h
+/home/john/GitHub Projects/RoboTTU/libcreate/src/create/types.h
 
-/home/john/libcreate/src/serial_query.cpp
+/home/john/GitHub Projects/RoboTTU/libcreate/src/serial_query.cpp
 iostream
 -
 create/serial_query.h
-/home/john/libcreate/src/create/serial_query.h
+/home/john/GitHub Projects/RoboTTU/libcreate/src/create/serial_query.h
 create/types.h
-/home/john/libcreate/src/create/types.h
+/home/john/GitHub Projects/RoboTTU/libcreate/src/create/types.h
 
-/home/john/libcreate/src/serial_stream.cpp
+/home/john/GitHub Projects/RoboTTU/libcreate/src/serial_stream.cpp
 iostream
 -
 create/serial_stream.h
-/home/john/libcreate/src/create/serial_stream.h
+/home/john/GitHub Projects/RoboTTU/libcreate/src/create/serial_stream.h
 create/types.h
-/home/john/libcreate/src/create/types.h
+/home/john/GitHub Projects/RoboTTU/libcreate/src/create/types.h
 
-/home/john/libcreate/src/types.cpp
+/home/john/GitHub Projects/RoboTTU/libcreate/src/types.cpp
 create/types.h
-/home/john/libcreate/src/create/types.h
+/home/john/GitHub Projects/RoboTTU/libcreate/src/create/types.h
 
 include/create/create.h
 boost/shared_ptr.hpp

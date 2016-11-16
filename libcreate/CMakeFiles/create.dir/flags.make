@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC
 
 CXX_DEFINES = -Dcreate_EXPORTS
 
-CXX_INCLUDES = -I/home/john/libcreate/include -I/home/john/libcreate 
+CXX_INCLUDES = -I"/home/john/GitHub Projects/RoboTTU/libcreate/include" -I"/home/john/GitHub Projects/RoboTTU/libcreate" 
 
