@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/bumper_example.dir/examples/bumper_example.cpp.o  -o bumper_example -rdynamic -lboost_system -lboost_thread -lboost_chrono -lboost_date_time -lboost_atomic -lpthread libcreate.so -lpthread -lboost_system -lboost_thread -lboost_chrono -lboost_date_time -lboost_atomic -lpthread -Wl,-rpath,"/home/john/GitHub Projects/RoboTTU/libcreate" 
