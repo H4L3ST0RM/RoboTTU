@@ -40,14 +40,14 @@ def parse(data):
 
     if data[0] == "TURNLEFT":
         print "received TURNLEFT command"
-        Bot.setTurnSpeed(100)
+        Bot.setTurnSpeed(-100)
         time.sleep(1)
         Bot.setTurnSpeed(0)
         Socket.send("RECEIVED\r\n")
 
     if data[0] == "TURNRIGHT":
         print "received TURNRIGHT command"
-        Bot.setTurnSpeed(-100)
+        Bot.setTurnSpeed(100)
         time.sleep(1)
         Bot.setTurnSpeed(0)
         Socket.send("RECEIVED\r\n")
