@@ -63,16 +63,26 @@ int main() {
                // turn left
                robot->drive(0.1, 1.0);
            }
+<<<<<<< HEAD
            else if (robot->isRightBumper()) {
                robot->drive(-0.1,0.0);
+=======
+           else if (robot->isRightBumper()) {               
+               robot->drive(-0.1,0.5);
+>>>>>>> 32f8e2aaeb61750abf8e97cad6b52c637bec127b
                playbackUpBeeper(robot);
                usleep(2000000);//2 seconds
                robot->drive(0.1,1.0);
                usleep(1000000);
            }
                // Check bumpers
+<<<<<<< HEAD
            else if (robot->isLeftBumper()) {
                robot->drive(-0.1,0.0);
+=======
+           else if (robot->isLeftBumper()) {               
+               robot->drive(-0.1,-0.5);
+>>>>>>> 32f8e2aaeb61750abf8e97cad6b52c637bec127b
                playbackUpBeeper(robot);
                usleep(2000000);//2 seconds
                // turn right
