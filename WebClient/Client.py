@@ -3,6 +3,7 @@ import socket
 import string
 import sys
 import time
+from subprocess import call
 from breezycreate2 import Robot
 ############################################
 # Client Configuration
@@ -96,7 +97,8 @@ while True:
         reconnect()
         continue
     print "connection established"
-    ReconnectAttempts = 1
+	#subprocess.call(["ruby", "autoTweet.rb", "-c"])
+	ReconnectAttempts = 1
     #
 
     # sub main loop that runs while socket is connected

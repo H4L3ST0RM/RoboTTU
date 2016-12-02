@@ -30,8 +30,15 @@ Software recommended for further development:
 * vim/nano/emacs
 
 Installation:
-* Must install rubygems
+* Must install ruby
+* Must install rubygems https://rubygems.org/pages/download
+* Must download and run ruby DevKit https://github.com/oneclick/rubyinstaller/wiki/Development-Kit#building-the-devkit
 * Must install twitter api
+
+Twitter API installation instructions from Windows command line
+* After download of ruby gems, execute following commands:
+* gem install twitter --source http://rubygems.org
+
 
 Server
 * Install Windows Server on the server
