@@ -19,11 +19,11 @@ access_token = OAuth::Token.new("790329083154444288-ttWdk7xH1pWTiFH7CyesuupyW0Mm
 
 
 if tweetType == 'y' then
-	tweetContent = "We are live! Check out the stream at https://www.youtube.com/channel/UCci5U62GUrWc6Ax90f2Wmnw" 
+	tweetContent = "We are live! Check out the stream at https://www.youtube.com/channel/UCci5U62GUrWc6Ax90f2Wmnw #RoboTTU" 
 elsif tweetType == 'c' then
-	tweetContent = "I connected at #{currentTime}"
-else
-	tweetContent = "Failed ARGV value at #{currentTime}. The value passed was #{tweetType}"
+	tweetContent = "I connected at #{currentTime} #RoboTTU"
+else #below needs some restructing for better error tracking
+	tweetContent = "Failed ARGV value at #{currentTime}. The value passed was #{tweetType}. #RoboTTU"
 end
 
 # Contents of tweet
@@ -31,7 +31,7 @@ baseurl = "https://api.twitter.com"
 path    = "/1.1/statuses/update.json"
 address = URI("#{baseurl}#{path}")
 request = Net::HTTP::Post.new address.request_uri
-#request.set_form_data("status" => "Tweet script running on server successfully! #RoboTTU",)
+#request.set_form_data("status" => "Tweet script running on server successfully! #RoboTTU")
 request.set_form_data("status" => tweetContent)
 
 # HTTP set up
