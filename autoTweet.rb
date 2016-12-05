@@ -22,6 +22,8 @@ if tweetType == 'y' then
 	tweetContent = "We are live! Check out the stream at https://www.youtube.com/channel/UCci5U62GUrWc6Ax90f2Wmnw #RoboTTU" 
 elsif tweetType == 'c' then
 	tweetContent = "I connected at #{currentTime} #RoboTTU"
+elsif tweetType == 'o' then
+	tweetContent = "This feature is not implemented yet. Coming soon! #RoboTTU"
 else #below needs some restructing for better error tracking
 	tweetContent = "Failed ARGV value at #{currentTime}. The value passed was #{tweetType}. #RoboTTU"
 end
