@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'oauth'
 require 'json'
-#requrie 'time'
 
 tweetType = ARGV.first
 tweetContent = ""
@@ -18,8 +17,11 @@ currentTime = Time.now
 consumer_key = OAuth::Consumer.new("q4DZXUuCrqGvFHIcy90LO0lFk","ocoPZJ1edWGNMQ7WsQwdRw8Cd6wqKWjVYkPJAHyAHcp9zZDB6Y")
 access_token = OAuth::Token.new("790329083154444288-ttWdk7xH1pWTiFH7CyesuupyW0MmBOT","c1PIjXDF4NVY0ENhT7VoQc1ir8Rm5LUISKodpVg2Jst51")
 
-if tweetType == 'c' then
-	tweetContent = "I connected at #{currentTime}!"
+
+if tweetType == 'y' then
+	tweetContent = "We are live! Check out the stream at https://www.youtube.com/channel/UCci5U62GUrWc6Ax90f2Wmnw" 
+elsif tweetType == 'c' then
+	tweetContent = "I connected at #{currentTime}"
 else
 	tweetContent = "Failed ARGV value"
 end
