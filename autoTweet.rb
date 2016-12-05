@@ -19,11 +19,11 @@ access_token = OAuth::Token.new("790329083154444288-ttWdk7xH1pWTiFH7CyesuupyW0Mm
 
 
 if tweetType == 'y' then
-	tweetContent = "We are live! Check out the stream at https://www.youtube.com/channel/UCci5U62GUrWc6Ax90f2Wmnw #RoboTTU" 
+	tweetContent = "We are live! Check out the stream at https://www.youtube.com/channel/UCci5U62GUrWc6Ax90f2Wmnw #RoboTTU #{currentTime}" 
 elsif tweetType == 'c' then
 	tweetContent = "I connected at #{currentTime} #RoboTTU"
 elsif tweetType == 'o' then
-	tweetContent = "This feature is not implemented yet. Coming soon! #RoboTTU"
+	tweetContent = "This feature is not implemented yet. Coming soon! #RoboTTU #{currentTime}"
 else #below needs some restructing for better error tracking
 	tweetContent = "Failed ARGV value at #{currentTime}. The value passed was #{tweetType}. #RoboTTU"
 end
