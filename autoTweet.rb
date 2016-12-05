@@ -23,7 +23,7 @@ if tweetType == 'y' then
 elsif tweetType == 'c' then
 	tweetContent = "I connected at #{currentTime}"
 else
-	tweetContent = "Failed ARGV value"
+	tweetContent = "Failed ARGV value at #{currentTime}. The value passed was #{tweetType}"
 end
 
 # Contents of tweet
