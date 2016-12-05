@@ -98,6 +98,7 @@ while True:
         continue
     print "connection established"
 	subprocess.call(['ruby', 'autoTweet.rb', 'c'])
+	subprocess.call(['ruby', 'autoTweet.rb', 'y'])
 	ReconnectAttempts = 1
     #
 
