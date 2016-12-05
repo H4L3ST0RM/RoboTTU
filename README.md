@@ -38,6 +38,7 @@ Installation:
 Twitter API installation instructions from Windows command line
 * After download of ruby gems, execute following commands:
 * gem install twitter --source http://rubygems.org
+* gem install oauth --source http://rubygems.org
 
 
 Server
