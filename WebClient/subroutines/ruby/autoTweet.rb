@@ -1,6 +1,22 @@
 require 'rubygems'
 require 'oauth'
 require 'json'
+# CS 4365 PROJECT GROUP 3
+#
+# DESCRIPTION: Tweets to the twitter account Robo_TTU. 
+#			   Uses command line arguments that are takes as
+#			   input. The command line type is defined as:
+#			   either c, o, y, or s.
+#			   c - tweets the time of connection to the server
+#			   o - tweets the amount of obstacles dodged
+#			   y - tweets the link to the youtube channel
+#	           s - tweets the sensor that was just triggered
+#
+# AUTHOR:      Aaron Trusty
+#			   Big thanks to codeacademy.com for the example code that I used as a base.
+#
+# LATE DATE MODIFIED: 12/6/2016 at 11:15 p.m.
+#
 
 tweetType = ARGV.first
 tweetContent = ""
@@ -9,9 +25,6 @@ currentTime = Time.now
 #	c - time of connection tweet
 #	o - obstacles dodged
 #	y - tweet youtube channel
-
-# Author: Aaron Trusty
-#	Big thanks to codeacademy.com for the example code that I used as a base.
 
 # Consumer key and access token.
 consumer_key = OAuth::Consumer.new("q4DZXUuCrqGvFHIcy90LO0lFk","ocoPZJ1edWGNMQ7WsQwdRw8Cd6wqKWjVYkPJAHyAHcp9zZDB6Y")
@@ -39,8 +52,6 @@ request.set_form_data("status" => tweetContent)
 # HTTP set up
 http             = Net::HTTP.new address.host, address.port
 http.use_ssl     = true
-# http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-# Above code causes problems... Testing code below
 http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 # Request
