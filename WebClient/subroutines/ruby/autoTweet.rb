@@ -10,12 +10,13 @@ require 'json'
 #			   c - tweets the time of connection to the server
 #			   o - tweets the amount of obstacles dodged
 #			   y - tweets the link to the youtube channel
-#	           s - tweets the sensor that was just triggered
+#	           l/r - tweets the direction instructed
+#			   p - tweets that the robot is being controlled from a mobile device
 #
 # AUTHOR:      Aaron Trusty
 #			   Big thanks to codeacademy.com for the example code that I used as a base.
 #
-# LATE DATE MODIFIED: 12/6/2016 at 11:15 p.m.
+# LATE DATE MODIFIED: 12/9/2016 at 3:00 p.m.
 #
 
 tweetType = ARGV.first
@@ -25,6 +26,8 @@ currentTime = Time.now
 #	c - time of connection tweet
 #	o - obstacles dodged
 #	y - tweet youtube channel
+#	l/r - left or right instruction
+#   p - mobile controls
 
 # Consumer key and access token.
 consumer_key = OAuth::Consumer.new("q4DZXUuCrqGvFHIcy90LO0lFk","ocoPZJ1edWGNMQ7WsQwdRw8Cd6wqKWjVYkPJAHyAHcp9zZDB6Y")
@@ -40,9 +43,9 @@ elsif tweetType == 'o' then #obstacles
 elsif tweetType == 'p' then #phone controls 
 	tweetContent = "#RoboTTU is being controlled from a mobile device! #{currentTime}"
 elsif tweetType == 'l' then #left sensor hit
-	tweetContent = "My left sensor was triggered! #RoboTTU #{currentTime}"	
+	tweetContent = "The server instructed me to turn left! #RoboTTU #{currentTime}"	
 elsif tweetType == 'r' then #right sensor hit
-	tweetContent = "My right sensor was triggered! #RoboTTU #{currentTime}"
+	tweetContent = "The server instructed me to turn right! #RoboTTU #{currentTime}"
 else #error handling
 	tweetContent = "Failed ARGV value at #{currentTime}. The value passed was #{tweetType}. #RoboTTU"
 end

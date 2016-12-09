@@ -41,6 +41,7 @@ def parse(data):
 
     if data[0] == "TURNLEFT":
         print "received TURNLEFT command"
+		call(['ruby', 'subroutines/ruby/autoTweet.rb', 'l']) #added
         Bot.setTurnSpeed(-100)
         time.sleep(1)
         Bot.setTurnSpeed(0)
@@ -48,6 +49,7 @@ def parse(data):
 
     if data[0] == "TURNRIGHT":
         print "received TURNRIGHT command"
+		call(['ruby', 'subroutines/ruby/autoTweet.rb', 'r']) #added
         Bot.setTurnSpeed(100)
         time.sleep(1)
         Bot.setTurnSpeed(0)
