@@ -33,11 +33,17 @@ access_token = OAuth::Token.new("790329083154444288-ttWdk7xH1pWTiFH7CyesuupyW0Mm
 
 if tweetType == 'y' then
 	tweetContent = "We are live! Check out the stream at https://www.youtube.com/channel/UCci5U62GUrWc6Ax90f2Wmnw #RoboTTU #{currentTime}" 
-elsif tweetType == 'c' then
+elsif tweetType == 'c' then #connection
 	tweetContent = "I connected at #{currentTime} #RoboTTU"
-elsif tweetType == 'o' then #will either tweet "i just bumped into an obstacle with my left or right sensor! at #time" or "i dodged this many obstacles" MAKE INTO TWO SEPARATE FEATURES
-	tweetContent = "This feature is not implemented yet. Coming soon! #RoboTTU #{currentTime}"
-else #below needs some restructing for better error tracking
+elsif tweetType == 'o' then #obstacles
+	tweetContent = "I avoided #{ARGV[1]} obstacles! #RoboTTU #{currentTime}"
+elsif tweetType == 'p' then #phone controls 
+	tweetContent = "#RoboTTU is being controlled from a mobile device! #{currentTime}"
+elsif tweetType == 'l' then #left sensor hit
+	tweetContent = "My left sensor was triggered! #RoboTTU #{currentTime}"	
+elsif tweetType == 'r' then #right sensor hit
+	tweetContent = "My right sensor was triggered! #RoboTTU #{currentTime}"
+else #error handling
 	tweetContent = "Failed ARGV value at #{currentTime}. The value passed was #{tweetType}. #RoboTTU"
 end
 
