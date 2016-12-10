@@ -6,10 +6,10 @@ RoboTTU is a small suite of applications integrated to control motors, servos an
 
 Hardware Required:
 * 1 Raspberry Pi 1b
-* 1 H Bridge, Model #L289N
 * 1 Pi Cam v1
-* 1 Camera Servo
-* 2 3V DC Motors
+* iRobot Create2
+* iRobot Create2 Serial Cable (USB->Roomba)
+* Ethernet Cable
 * Legos
 * 1 Computer
 
@@ -23,6 +23,8 @@ Software Required (latest version unless otherwise specified):
 * Ruby 64bit
 * Ruby gems
 * Twitter API
+* libcreate library https://github.com/AutonomyLab/libcreate
+* breezycreate2 library https://github.com/simondlevy/BreezyCreate2
 
 Software recommended for further development:
 * Visual Studio
@@ -32,7 +34,7 @@ Software recommended for further development:
 Installation:
 * Must install ruby
 * Must install rubygems https://rubygems.org/pages/download
-* Must download and run ruby DevKit https://github.com/oneclick/rubyinstaller/wiki/Development-Kit#building-the-devkit
+* Must download and run ruby DevKit https://github.com/oneclick/rubyinstaller/wiki/Development-Kit #building-the-devkit
 * Must install twitter api
 
 Twitter API installation instructions from Windows command line
