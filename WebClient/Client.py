@@ -70,11 +70,11 @@ def parse(data):
         print "received RECOGNITION command"
         Socket.send("RECEIVED\r\n")
 
-    if data[0] == "CAMERA":
-        if data[1] == "ON":
+    if data[0] == "STREAM":
+        if data[1] == "1":
             print "starting youtube stream"
             youtube.start_stream("subroutines")
-        if data[1] == "OFF":
+        if data[1] == "0":
             print "stopping youtube stream"
             youtube.kill_stream()
 
