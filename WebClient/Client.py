@@ -3,7 +3,7 @@ import socket
 import string
 import sys
 import time
-from subprocess import call
+from subprocess import Popen
 from breezycreate2 import Robot
 ############################################
 # Client Configuration
@@ -28,9 +28,9 @@ def parse(data):
     if data[0] == "FORWARD":
         print "received FORWARD command"
         Bot.setForwardSpeed(100)
-	time.sleep(1)
-	Bot.setForwardSpeed(0)
-    #    Socket.send("RECEIVED\r\n")
+        time.sleep(1)
+        Bot.setForwardSpeed(0)
+        Socket.send("RECEIVED\r\n")
 
     if data[0] == "REVERSE":
         print "received REVERSE command"
@@ -41,15 +41,15 @@ def parse(data):
 
     if data[0] == "TURNLEFT":
         print "received TURNLEFT command"
-        call(['ruby', 'subroutines/ruby/autoTweet.rb', 'l']) #added
-        Bot.setTurnSpeed(-100)
+        Popen(['ruby', 'subroutines/ruby/autoTweet.rb', 'l']) #added
+        Bot.setTurnSpeed(-100)                               #aaron's comments are dumb and don't even include date and who wrote them
         time.sleep(1)
         Bot.setTurnSpeed(0)
         Socket.send("RECEIVED\r\n")
 
     if data[0] == "TURNRIGHT":
         print "received TURNRIGHT command"
-        call(['ruby', 'subroutines/ruby/autoTweet.rb', 'r']) #added
+        Popen(['ruby', 'subroutines/ruby/autoTweet.rb', 'r']) #added
         Bot.setTurnSpeed(100)
         time.sleep(1)
         Bot.setTurnSpeed(0)
