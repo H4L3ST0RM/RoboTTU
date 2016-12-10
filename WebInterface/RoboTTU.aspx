@@ -15,7 +15,7 @@
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
-                <asp:TableCell ColumnSpan="2">Tread Controls</asp:TableCell>
+                <asp:TableCell ColumnSpan="2">Movement Controls</asp:TableCell>
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell HorizontalAlign="Right" Width="50%">
@@ -28,14 +28,14 @@
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
-                <asp:TableCell ColumnSpan="2">Camera Controls</asp:TableCell>
+                <asp:TableCell ColumnSpan="2">Other Controls</asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
                 <asp:TableCell HorizontalAlign="Right" Width="50%">
-                    <asp:Button ID="btnCameraServoLeft" Text="Left" OnClick="btnCameraServoLeft_Click" runat="server"/>
+                    <asp:Button ID="btnAvoidance" Text="Obstacle Avoidance" OnClick="btnAvoidance_Click" runat="server"/>
                 </asp:TableCell>
                 <asp:TableCell HorizontalAlign="Left">
-                    <asp:Button ID="btnCameraServoRight" Text="Right" OnClick="btnCameraServoRight_Click" runat="server"/>
+                    <asp:Button ID="btnRecognition" Text="Image Recognition" OnClick="btnRecognition_Click" runat="server"/>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow runat="server">

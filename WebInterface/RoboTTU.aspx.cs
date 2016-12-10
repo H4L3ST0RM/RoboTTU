@@ -29,13 +29,13 @@ public partial class RoboTTU : System.Web.UI.Page
         SendCommand(WebProtocol.Commands.TurnRight, WebProtocol.Values.Default);
     }
 
-    protected void btnCameraServoLeft_Click(object sender, EventArgs e)
+    protected void btnAvoidance_Click(object sender, EventArgs e)
     {
-        SendCommand(WebProtocol.Commands.CameraLeft, WebProtocol.Values.Default);
+        SendCommand(WebProtocol.Commands.ObstacleAvoidance, WebProtocol.Values.Default);
     }
-    protected void btnCameraServoRight_Click(object sender, EventArgs e)
+    protected void btnRecognition_Click(object sender, EventArgs e)
     {
-        SendCommand(WebProtocol.Commands.CameraRight, WebProtocol.Values.Default);
+        SendCommand(WebProtocol.Commands.ImageRecognition, WebProtocol.Values.Default);
     }
 
     private void SendCommand(string command, int value)
