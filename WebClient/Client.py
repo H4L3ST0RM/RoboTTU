@@ -1,10 +1,43 @@
+
+Skip to content
+This repository
+
+    Pull requests
+    Issues
+    Gist
+
+    @H4L3ST0RM
+
+4
+3
+
+    2
+
+H4L3ST0RM/RoboTTU
+Code
+Issues 5
+Pull requests 1
+Projects 0
+Wiki
+Pulse
+Graphs
+Settings
+RoboTTU/WebClient/Client.py
+42ef035 43 minutes ago
+@jbubel jbubel Added youtube stream handling to the Client
+@twibird
+@jbubel
+@ATrusty
+@zgrummons
+137 lines (117 sloc) 3.88 KB
 import select
 import socket
 import string
 import sys
 import time
-from subprocess import call
+from subprocess import Popen
 from breezycreate2 import Robot
+from subroutines.python import stream as youtube
 ############################################
 # Client Configuration
 ############################################
@@ -28,9 +61,9 @@ def parse(data):
     if data[0] == "FORWARD":
         print "received FORWARD command"
         Bot.setForwardSpeed(100)
-	time.sleep(1)
-	Bot.setForwardSpeed(0)
-    #    Socket.send("RECEIVED\r\n")
+        time.sleep(1)
+        Bot.setForwardSpeed(0)
+        Socket.send("RECEIVED\r\n")
 
     if data[0] == "REVERSE":
         print "received REVERSE command"
@@ -41,15 +74,15 @@ def parse(data):
 
     if data[0] == "TURNLEFT":
         print "received TURNLEFT command"
-        call(['ruby', 'subroutines/ruby/autoTweet.rb', 'l']) #added
-        Bot.setTurnSpeed(-100)
+        Popen(['ruby', 'subroutines/ruby/autoTweet.rb', 'l']) #added
+        Bot.setTurnSpeed(-100)                               #aaron's comments are dumb and don't even include date and who wrote them
         time.sleep(1)
         Bot.setTurnSpeed(0)
         Socket.send("RECEIVED\r\n")
 
     if data[0] == "TURNRIGHT":
         print "received TURNRIGHT command"
-        call(['ruby', 'subroutines/ruby/autoTweet.rb', 'r']) #added
+        Popen(['ruby', 'subroutines/ruby/autoTweet.rb', 'r']) #added
         Bot.setTurnSpeed(100)
         time.sleep(1)
         Bot.setTurnSpeed(0)
@@ -63,6 +96,13 @@ def parse(data):
         print "received RECOGNITION command"
         Socket.send("RECEIVED\r\n")
 
+    if data[0] == "CAMERA":
+        if data[1] == "ON":
+            print "starting youtube stream"
+            youtube.start_stream("subroutines")
+        if data[1] == "OFF":
+            print "stopping youtube stream"
+            youtube.kill_stream()
 
 # Doesn't actually reconnect, just handles logic based around reconnecting
 # The actual reconnecting happens when the main loop is continue'd and performs
@@ -125,4 +165,3 @@ while True:
 
         for line in lines:
             parse(line)
-    #
