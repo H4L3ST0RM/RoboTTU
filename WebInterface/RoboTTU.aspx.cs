@@ -37,6 +37,14 @@ public partial class RoboTTU : System.Web.UI.Page
     {
         SendCommand(WebProtocol.Commands.ImageRecognition, WebProtocol.Values.Default);
     }
+    protected void btnStreamOn_Click(object sender, EventArgs e)
+    {
+        SendCommand(WebProtocol.Commands.ImageRecognition, WebProtocol.Values.On);
+    }
+    protected void btnStreamOff_Click(object sender, EventArgs e)
+    {
+        SendCommand(WebProtocol.Commands.ImageRecognition, WebProtocol.Values.Off);
+    }
 
     private void SendCommand(string command, int value)
     {

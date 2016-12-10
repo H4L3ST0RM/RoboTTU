@@ -45,6 +45,7 @@ namespace CS4365_Web_Service
                         case "TURNRIGHT":
                         case "AVOIDANCE":
                         case "RECOGNITION":
+                        case "STREAM"
                             try
                             {
                                 writer.WriteLine($"{inputTokenArray[0]} {inputTokenArray[1]}");
