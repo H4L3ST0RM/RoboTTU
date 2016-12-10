@@ -14,8 +14,8 @@ public static class WebProtocol
         public static string Reverse = "REVERSE";
         public static string TurnLeft = "TURNLEFT";
         public static string TurnRight = "TURNRIGHT";
-        public static string CameraLeft = "CAMERALEFT";
-        public static string CameraRight = "CAMERARIGHT";
+        public static string ObstacleAvoidance = "AVOIDANCE";
+        public static string ImageRecognition = "RECOGNITION";
     }
 
     public static class Values

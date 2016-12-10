@@ -43,8 +43,8 @@ namespace CS4365_Web_Service
                         case "REVERSE":
                         case "TURNLEFT":
                         case "TURNRIGHT":
-                        case "CAMERALEFT":
-                        case "CAMERARIGHT":
+                        case "AVOIDANCE":
+                        case "RECOGNITION":
                             try
                             {
                                 writer.WriteLine($"{inputTokenArray[0]} {inputTokenArray[1]}");

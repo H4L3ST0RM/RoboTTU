@@ -41,6 +41,7 @@ def parse(data):
 
     if data[0] == "TURNLEFT":
         print "received TURNLEFT command"
+		call(['ruby', 'subroutines/ruby/autoTweet.rb', 'l']) #added
         Bot.setTurnSpeed(-100)
         time.sleep(1)
         Bot.setTurnSpeed(0)
@@ -48,17 +49,18 @@ def parse(data):
 
     if data[0] == "TURNRIGHT":
         print "received TURNRIGHT command"
+		call(['ruby', 'subroutines/ruby/autoTweet.rb', 'r']) #added
         Bot.setTurnSpeed(100)
         time.sleep(1)
         Bot.setTurnSpeed(0)
         Socket.send("RECEIVED\r\n")
 
-    if data[0] == "CAMERARIGHT":
-        print "received CAMERARIGHT command"
+    if data[0] == "AVOIDANCE":
+        print "received AVOIDANCE command"
         Socket.send("RECEIVED\r\n")
 
-    if data[0] == "CAMERALEFT":
-        print "received CAMERALEFT command"
+    if data[0] == "RECOGNITION":
+        print "received RECOGNITION command"
         Socket.send("RECEIVED\r\n")
 
 
@@ -97,8 +99,8 @@ while True:
         reconnect()
         continue
     print "connection established"
-    subprocess.call(['ruby', 'subroutines/ruby/autoTweet.rb', 'c'])
-    subprocess.call(['ruby', 'subroutines/ruby/autoTweet.rb', 'y'])
+    call(['ruby', 'subroutines/ruby/autoTweet.rb', 'c'])
+    call(['ruby', 'subroutines/ruby/autoTweet.rb', 'y'])
     ReconnectAttempts = 1
     #
 

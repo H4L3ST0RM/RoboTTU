@@ -8,14 +8,15 @@ require 'json'
 #			   input. The command line type is defined as:
 #			   either c, o, y, or s.
 #			   c - tweets the time of connection to the server
-#			   o - tweets the amount of obstacles dodged
+#			   o - tweets the amount of obstacles collided
 #			   y - tweets the link to the youtube channel
-#	           s - tweets the sensor that was just triggered
+#	           l/r - tweets the direction instructed
+#			   p - tweets that the robot is being controlled from a mobile device
 #
 # AUTHOR:      Aaron Trusty
 #			   Big thanks to codeacademy.com for the example code that I used as a base.
 #
-# LATE DATE MODIFIED: 12/6/2016 at 11:15 p.m.
+# LATE DATE MODIFIED: 12/9/2016 at 3:00 p.m.
 #
 
 tweetType = ARGV.first
@@ -23,21 +24,29 @@ tweetContent = ""
 currentTime = Time.now
 #types:
 #	c - time of connection tweet
-#	o - obstacles dodged
+#	o - obstacles collided
 #	y - tweet youtube channel
+#	l/r - left or right instruction
+#   p - mobile controls
 
 # Consumer key and access token.
 consumer_key = OAuth::Consumer.new("q4DZXUuCrqGvFHIcy90LO0lFk","ocoPZJ1edWGNMQ7WsQwdRw8Cd6wqKWjVYkPJAHyAHcp9zZDB6Y")
 access_token = OAuth::Token.new("790329083154444288-ttWdk7xH1pWTiFH7CyesuupyW0MmBOT","c1PIjXDF4NVY0ENhT7VoQc1ir8Rm5LUISKodpVg2Jst51")
 
 
-if tweetType == 'y' then
+if tweetType == 'y' then #tweet youtube channel url
 	tweetContent = "We are live! Check out the stream at https://www.youtube.com/channel/UCci5U62GUrWc6Ax90f2Wmnw #RoboTTU #{currentTime}" 
-elsif tweetType == 'c' then
+elsif tweetType == 'c' then #connection
 	tweetContent = "I connected at #{currentTime} #RoboTTU"
-elsif tweetType == 'o' then #will either tweet "i just bumped into an obstacle with my left or right sensor! at #time" or "i dodged this many obstacles" MAKE INTO TWO SEPARATE FEATURES
-	tweetContent = "This feature is not implemented yet. Coming soon! #RoboTTU #{currentTime}"
-else #below needs some restructing for better error tracking
+elsif tweetType == 'o' then #obstacles
+	tweetContent = "I collided with #{ARGV[1]} obstacle(s)! #RoboTTU #{currentTime}"
+elsif tweetType == 'p' then #phone controls 
+	tweetContent = "#RoboTTU is being controlled from a mobile device! #{currentTime}"
+elsif tweetType == 'l' then #left sensor hit
+	tweetContent = "The server instructed me to turn left! #RoboTTU #{currentTime}"	
+elsif tweetType == 'r' then #right sensor hit
+	tweetContent = "The server instructed me to turn right! #RoboTTU #{currentTime}"
+else #error handling
 	tweetContent = "Failed ARGV value at #{currentTime}. The value passed was #{tweetType}. #RoboTTU"
 end
 

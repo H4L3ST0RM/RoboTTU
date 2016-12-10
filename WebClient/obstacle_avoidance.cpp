@@ -1,5 +1,7 @@
 #include "create/create.h"
 #include <unistd.h>
+#include <iostream>
+#include <string>
 create::Create* robot;
 /*
 DESCRIPTION: This program will begin to roam when the "Hour" button is pushed.
@@ -36,7 +38,7 @@ int main() {
    robot->setMode(create::MODE_FULL);
 
    bool drive = false;
-
+   int obsCollided = 0;
    // Quit when center "Clean" button pressed
    while (!robot->isCleanButtonPressed()) {
 
@@ -69,6 +71,7 @@ int main() {
                usleep(2000000);//2 seconds
                robot->drive(0.1,1.0);
                usleep(1000000);
+			   obsCollided+=1;
            }
                // Check bumpers
            else if (robot->isLeftBumper()) {
@@ -78,6 +81,7 @@ int main() {
                // turn right
                robot->drive(0.1, -1.0);
                usleep(1000000);
+			   obsCollided+=1;
            }
            else {
                // drive straight
@@ -90,6 +94,9 @@ int main() {
        }
        usleep(1000 * 100); //10hz
    }
+   std::string rubyCall = "ruby subroutines/ruby/autoTweet.rb o "; //added
+   rubyCall = rubyCall + std::to_string(obsCollided); //added
+   system(rubyCall); //added
    // Make sure to disconnect to clean up
    robot->disconnect();
    delete robot;
