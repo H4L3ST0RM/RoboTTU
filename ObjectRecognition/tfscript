@@ -1,0 +1,43 @@
+# Script that retrieves the image of the pi camera
+# Feeds the image to the TF classify_image.py
+# Then displays the output
+
+from selenium import webdriver
+from PIL import Image
+import subprocess
+import time
+import sys
+from pyvirtualdisplay import Display
+
+classify_image_path='/usr/local/lib/python3.5/dist-packages/tensorflow/models/image/imagenet/classify_image.py'
+livestream_link = 'https://www.youtube.com/watch?v=bW0t4tGunos&feature=player_embedded'
+oldstream_link = 'https://www.youtube.com/watch?v=2Q5vFWnGjfk'
+filename = '/home/sestens/PycharmProjects/tfscript/pic.png'
+jpgimg_path = '/home/sestens/PycharmProjects/tfscript/pic.jpg'
+command = 'python3.5 ' + classify_image_path + ' --image_file '+ jpgimg_path
+# setup a virtual display
+display = Display(visible=0, size=(1366, 768))
+display.start()
+# get the image from the live stream
+browser = webdriver.Firefox()
+browser.get(oldstream_link)
+
+# wait for 3 seconds for the video to load
+# time.sleep(3)
+
+result = browser.save_screenshot(filename)
+browser.close()
+display.popen.terminate()
+img = Image.open(filename)
+# crop the image
+img = img.crop((77, 61, 717, 381))
+# save image as jpeg
+img.save(jpgimg_path)
+# now run tf to classify the image
+output = subprocess.check_output(command, shell=True)
+# print the output
+encoding = sys.stdout.encoding
+output = output.decode(encoding)
+lines_of_output = output.splitlines()
+print("top result is " + lines_of_output[0])
+print("second best result is " + lines_of_output[1])
