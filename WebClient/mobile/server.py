@@ -17,34 +17,6 @@ def _update():
     #right[-10,10]
     left = int(request.args.get('left'))
     right = int(request.args.get('right'))
-    """
-    radius=left-right #in mm 0=straight 1=sharpest turn
-    #radius[-20,20]
-    radius*=radius
-    #radius[0,400]
-    if radius>0:
-        radius=401-radius
-    #radius[0,400]
-
-    if radius<0: #[-400,-1]
-        radius+=21
-        radius*=radius
-        radius*=-1
-    if radius>0: #[1,400]
-        radius-=21
-        radius*=radius
-
-    if right>left:
-        radius=-1*radius
-    #radius[-400,400]
-
-    if right==left:  #not turning
-        radius=0
-    elif right>left: #turning left
-        radius=400*min(abs(right),abs(left))/max(abs(right),abs(left))-401
-    else:            #turning right
-        radius=-400*min(abs(right),abs(left))/max(abs(right),abs(left))+401
-    """
     radius=GetRadius(right,left)
     speed=(left+right)*speedX #[-200,200]
     if speed*speed<=400:
@@ -81,9 +53,7 @@ def GetRadius(R,L):
         return 0
     if R>L: #turning left
         return -400*min(abs(R),abs(L))/max(abs(R),abs(L))+401
-    #turning right
-    return 400*min(abs(R),abs(L))/max(abs(R),abs(L))-401
-
+    return 400*min(abs(R),abs(L))/max(abs(R),abs(L))-401 #turning right
 
 # run the webserver on standard port 80, requires sudo
 if __name__ == "__main__":
