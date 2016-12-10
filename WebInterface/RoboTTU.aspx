@@ -43,13 +43,15 @@
                 <asp:TableCell HorizontalAlign="Right" Width="50%">
                     <asp:UpdatePanel runat="server">
                         <ContentTemplate>
-                            <asp:Button ID="btnAvoidance" Text="Obstacle Avoidance" OnClick="btnAvoidance_Click" runat="server"/>
+                            <asp:Button ID="btnStreamOn" Text="Stream On" OnClick="btnStreamOn_Click" runat="server"/>
+                            <asp:Button ID="btnStreamOff" Text="Stream Off" OnClick="btnStreamOff_Click" runat="server"/>
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </asp:TableCell>
                 <asp:TableCell HorizontalAlign="Left">
                     <asp:UpdatePanel runat="server">
                         <ContentTemplate>
+                            <asp:Button ID="btnAvoidance" Text="Obstacle Avoidance" OnClick="btnAvoidance_Click" runat="server"/>
                             <asp:Button ID="btnRecognition" Text="Image Recognition" OnClick="btnRecognition_Click" runat="server"/>
                         </ContentTemplate>
                     </asp:UpdatePanel>

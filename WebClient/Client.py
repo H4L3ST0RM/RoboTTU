@@ -95,7 +95,11 @@ def parse(data):
     if data[0] == "RECOGNITION":
         print "received RECOGNITION command"
         Socket.send("RECEIVED\r\n")
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> bf8082659e529389494f44b1253e41c953fe6b6b
     if data[0] == "CAMERA":
         if data[1] == "ON":
             print "starting youtube stream"

@@ -16,11 +16,14 @@ public static class WebProtocol
         public static string TurnRight = "TURNRIGHT";
         public static string ObstacleAvoidance = "AVOIDANCE";
         public static string ImageRecognition = "RECOGNITION";
+        public static string Stream = "STREAM";
     }
 
     public static class Values
     {
         public static int Default = 5;
+        public static int On = 1;
+        public static int Off = 0;
     }
 }
 
