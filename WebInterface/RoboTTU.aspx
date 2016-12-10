@@ -8,10 +8,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Table Width="75%" HorizontalAlign="Center" runat="server" Font-Names="Calibri" CellSpacing="5">
+        <asp:Table ID="tblMain" Width="75%" HorizontalAlign="Center" runat="server" Font-Names="Calibri" CellSpacing="5">
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell ColumnSpan="2">
-                    <iframe width="1280" height="720" src="https://www.youtube.com/embed/47z64djf4iU?autoplay=1"></iframe>
+                    <iframe width="640" height="480" src="https://www.youtube.com/embed/live_stream?channel=UCci5U62GUrWc6Ax90f2Wmnw&autoplay=1"></iframe>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
@@ -19,7 +19,7 @@
             </asp:TableRow>
             <asp:TableRow HorizontalAlign="Center">
                 <asp:TableCell HorizontalAlign="Right" Width="50%">
-                    <asp:Button ID="btnTurnLeft" Text="Turn Left" OnClick="btnTurnLeft_Click" runat="server" />&nbsp;
+                    <asp:Button ID="btnTurnLeft" Text="Left" OnClick="btnTurnLeft_Click" runat="server" />&nbsp;
                     <asp:Button ID="btnForward" Text="Forward" OnClick="btnForward_Click" runat="server"/>
                 </asp:TableCell>
                 <asp:TableCell HorizontalAlign="Left">
