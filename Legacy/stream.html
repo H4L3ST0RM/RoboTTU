@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <title>Webcam</title>
+
+    <script>
+      var img;  
+      function reload_img ()
+      {
+        if (document.getElementById("click").innerHTML == "Hide Webcam Feed"){
+          img.src = "cam_pic.php?time=" + new Date().getTime();
+        }
+      }
+      
+      function error_img ()
+      {
+        setTimeout("mjpeg_img.src = 'cam_pic.php?time=' + new Date().getTime();", 100);
+      }
+      
+      function init()
+      {
+        img = document.getElementById("stream");
+        img.onload = reload_img;
+        img.onerror = error_img;
+        reload_img();
+      }
+      
+      function clickHandler()
+      {
+        if (document.getElementById("click").innerHTML == "Show Webcam Feed"){
+          document.getElementById("click").innerHTML = "Hide Webcam Feed";
+          init();
+          document.getElementById("stream").style.display = "inline";
+        }
+        else{
+          document.getElementById("click").innerHTML = "Show Webcam Feed";
+          document.getElementById("stream").style.display = "none";
+        }
+      }
+    
+    </script>
+  </head>
+  
+    <body>
+    
+      <h1>Live Stream</h1>
+    
+      <center>
+          <div><img style="display:none" id="stream" /></div>
+      </center>
+    
+      <button id="click" type="button" onclick="clickHandler()">Show Webcam Feed</button>
+  
+  </body>
+</html>
