@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <iostream>
 #include <string>
+#include<stdio.h>
 create::Create* robot;
 /*
 DESCRIPTION: This program will begin to roam when the "Hour" button is pushed.
@@ -14,8 +15,11 @@ Based on "create_demo" in "examples" files from libcreate library.
 AUTHORS:
   - John C. Hale
   - Santiago Estens
+  - Aaron Trusty
+LAST EDITED BY:
+  - John C. Hale
 LAST DATE MODIFIED:
-  -11/13/2016 11:34 pm
+  -12/09/2016 10:13 pm
 */
 int playbackUpBeeper(create::Create* robot);
 
@@ -94,9 +98,14 @@ int main() {
        }
        usleep(1000 * 100); //10hz
    }
-   std::string rubyCall = "ruby subroutines/ruby/autoTweet.rb o "; //added
-   rubyCall = rubyCall + std::to_string(obsCollided); //added
+   //The following instructions tweet how many obstacles were hit at
+   //end of obstacle_avoidance algorithm
+   char rubyCall[100];
+   int cx;
+   cx = snprintf (rubyCall, 100, "subroutines/ruby/autoTweet.rb o %d", obsCollided);
+   puts(rubyCall);
    system(rubyCall); //added
+   //system(rubyCall);
    // Make sure to disconnect to clean up
    robot->disconnect();
    delete robot;
@@ -117,3 +126,4 @@ int playbackUpBeeper(create::Create* robot){
     robot->playSong(0);
     return 0;
 }
+
