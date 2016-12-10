@@ -51,7 +51,8 @@
                 <asp:TableCell HorizontalAlign="Left">
                     <asp:UpdatePanel runat="server">
                         <ContentTemplate>
-                            <asp:Button ID="btnAvoidance" Text="Obstacle Avoidance" OnClick="btnAvoidance_Click" runat="server"/>
+                            <asp:Button ID="btnAvoidanceOn" Text="Obstacle Avoidance On" OnClick="btnAvoidanceOn_Click" runat="server"/>
+                            <asp:Button ID="btnAvoidanceOff" Text="Obstacle Avoidance Off" OnClick="btnAvoidanceOff_Click" runat="server"/>
                             <asp:Button ID="btnRecognition" Text="Image Recognition" OnClick="btnRecognition_Click" runat="server"/>
                         </ContentTemplate>
                     </asp:UpdatePanel>

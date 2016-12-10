@@ -29,9 +29,13 @@ public partial class RoboTTU : System.Web.UI.Page
         SendCommand(WebProtocol.Commands.TurnRight, WebProtocol.Values.Default);
     }
 
-    protected void btnAvoidance_Click(object sender, EventArgs e)
+    protected void btnAvoidanceOn_Click(object sender, EventArgs e)
     {
-        SendCommand(WebProtocol.Commands.ObstacleAvoidance, WebProtocol.Values.Default);
+        SendCommand(WebProtocol.Commands.ObstacleAvoidance, WebProtocol.Values.On);
+    }
+    protected void btnAvoidanceOff_Click(object sender, EventArgs e)
+    {
+        SendCommand(WebProtocol.Commands.ObstacleAvoidance, WebProtocol.Values.Off);
     }
     protected void btnRecognition_Click(object sender, EventArgs e)
     {

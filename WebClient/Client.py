@@ -89,17 +89,18 @@ def parse(data):
         Socket.send("RECEIVED\r\n")
 
     if data[0] == "AVOIDANCE":
-        print "received AVOIDANCE command"
+        if data[1] == "ON":
+            print "starting obstacle avoidance"
+            #JOHN
+        if data[1] == "OFF":
+            print "stopping obstacle avoidance"
+            #stub
         Socket.send("RECEIVED\r\n")
 
     if data[0] == "RECOGNITION":
         print "received RECOGNITION command"
         Socket.send("RECEIVED\r\n")
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> bf8082659e529389494f44b1253e41c953fe6b6b
     if data[0] == "CAMERA":
         if data[1] == "ON":
             print "starting youtube stream"
