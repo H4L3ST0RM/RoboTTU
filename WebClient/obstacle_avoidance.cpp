@@ -1,5 +1,7 @@
 #include "create/create.h"
 #include <unistd.h>
+#include <iostream>
+#include <string>
 create::Create* robot;
 /*
 DESCRIPTION: This program will begin to roam when the "Hour" button is pushed.
@@ -93,7 +95,7 @@ int main() {
        usleep(1000 * 100); //10hz
    }
    std::string rubyCall = "ruby subroutines/ruby/autoTweet.rb o "; //added
-   rubyCall+=std::to_string(obsCollided); //added
+   rubyCall = rubyCall + std::to_string(obsCollided); //added
    system(rubyCall); //added
    // Make sure to disconnect to clean up
    robot->disconnect();

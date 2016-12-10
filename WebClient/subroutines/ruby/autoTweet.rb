@@ -34,7 +34,7 @@ consumer_key = OAuth::Consumer.new("q4DZXUuCrqGvFHIcy90LO0lFk","ocoPZJ1edWGNMQ7W
 access_token = OAuth::Token.new("790329083154444288-ttWdk7xH1pWTiFH7CyesuupyW0MmBOT","c1PIjXDF4NVY0ENhT7VoQc1ir8Rm5LUISKodpVg2Jst51")
 
 
-if tweetType == 'y' then
+if tweetType == 'y' then #tweet youtube channel url
 	tweetContent = "We are live! Check out the stream at https://www.youtube.com/channel/UCci5U62GUrWc6Ax90f2Wmnw #RoboTTU #{currentTime}" 
 elsif tweetType == 'c' then #connection
 	tweetContent = "I connected at #{currentTime} #RoboTTU"
