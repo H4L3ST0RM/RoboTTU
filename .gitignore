@@ -90,3 +90,4 @@ ENV/
 WebClient/.idea/workspace.xml
 WebInterface/.vs/WebInterface/v14/.suo
 *.xml
+*.suo
