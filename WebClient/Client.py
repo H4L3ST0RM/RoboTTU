@@ -5,6 +5,7 @@ import sys
 import time
 from subprocess import Popen
 from breezycreate2 import Robot
+from subroutines.python import stream as youtube
 ############################################
 # Client Configuration
 ############################################
@@ -62,7 +63,14 @@ def parse(data):
     if data[0] == "RECOGNITION":
         print "received RECOGNITION command"
         Socket.send("RECEIVED\r\n")
-
+    
+    if data[0] == "CAMERA":
+        if data[1] == "ON":
+            print "starting youtube stream"
+            youtube.start_stream("subroutines")
+        if data[1] == "OFF":
+            print "stopping youtube stream"
+            youtube.kill_stream()
 
 # Doesn't actually reconnect, just handles logic based around reconnecting
 # The actual reconnecting happens when the main loop is continue'd and performs
