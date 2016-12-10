@@ -55,12 +55,12 @@ def parse(data):
         Bot.setTurnSpeed(0)
         Socket.send("RECEIVED\r\n")
 
-    if data[0] == "CAMERARIGHT":
-        print "received CAMERARIGHT command"
+    if data[0] == "AVOIDANCE":
+        print "received AVOIDANCE command"
         Socket.send("RECEIVED\r\n")
 
-    if data[0] == "CAMERALEFT":
-        print "received CAMERALEFT command"
+    if data[0] == "RECOGNITION":
+        print "received RECOGNITION command"
         Socket.send("RECEIVED\r\n")
 
 
