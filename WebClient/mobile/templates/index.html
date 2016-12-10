@@ -1,0 +1,66 @@
+<!doctype html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, heightinitial-scale=1">
+
+<!-- Include jQuery Mobile stylesheets -->
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+<!-- Include the jQuery library -->
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include the jQuery Mobile library -->
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+</head>
+
+<style> <!-- Additional styling -->
+h3, h4 {text-align: center;}
+span {font-weight: bold;}
+</style>
+
+<script type=text/javascript>
+    $(
+    // When the LED button is pressed (change)
+    // do an ajax request to server to change LED state
+    function()
+    {
+        $('#slider-L').change(function()
+        {
+        $.getJSON('/_UPDATE', {left: $('#slider-L').val(), right: $('#slider-R').val()});
+        });
+    }
+    );
+
+    $(
+    // When the LED button is pressed (change)
+    // do an ajax request to server to change LED state
+    function()
+    {
+        $('#slider-R').change(function()
+        {
+        $.getJSON('/_UPDATE', {left: $('#slider-L').val(), right: $('#slider-R').val()});
+        });
+    }
+    );
+
+</script>
+<!-- The Raspberry Pi uptime is displayed in the footer -->
+
+<div data-role="page" data-theme="b">
+  <div data-role="header">
+    <div><h3>Raspberry Pi Mobile Controls</h3></div>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <input type="range" name="slider-L" id="slider-L" value="0" min="-10" max="10">
+    <br>
+    <br>
+    <input type="range" name="slider-R" id="slider-R" value="0" min="-10" max="10">
+  </div>
+
+  <div data-role="footer">
+    <div><h4>This Raspberry Pi has been {{uptime}}</h4></div>
+  </div>
+</div>
