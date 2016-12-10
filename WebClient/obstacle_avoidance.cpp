@@ -36,7 +36,7 @@ int main() {
    robot->setMode(create::MODE_FULL);
 
    bool drive = false;
-   int obsDodged = 0;
+   int obsCollided = 0;
    // Quit when center "Clean" button pressed
    while (!robot->isCleanButtonPressed()) {
 
@@ -56,14 +56,12 @@ int main() {
                robot->isLightBumperCenterLeft()) {
                // turn right
                robot->drive(0.1, -1.0);
-			   obsDodged+=1;
            }
            else if (robot->isLightBumperRight() ||
                     robot->isLightBumperFrontRight() ||
                     robot->isLightBumperCenterRight()) {
                // turn left
                robot->drive(0.1, 1.0);
-			   obsDodged+=1;
            }
            else if (robot->isRightBumper()) {
                robot->drive(-0.1,0.0);
@@ -71,7 +69,7 @@ int main() {
                usleep(2000000);//2 seconds
                robot->drive(0.1,1.0);
                usleep(1000000);
-			   obsDodged+=1;
+			   obsCollided+=1;
            }
                // Check bumpers
            else if (robot->isLeftBumper()) {
@@ -81,7 +79,7 @@ int main() {
                // turn right
                robot->drive(0.1, -1.0);
                usleep(1000000);
-			   obsDodged+=1;
+			   obsCollided+=1;
            }
            else {
                // drive straight
@@ -95,7 +93,7 @@ int main() {
        usleep(1000 * 100); //10hz
    }
    std::string rubyCall = "ruby subroutines/ruby/autoTweet.rb o "; //added
-   rubyCall+=std::to_string(obsDodged); //added
+   rubyCall+=std::to_string(obsCollided); //added
    system(rubyCall); //added
    // Make sure to disconnect to clean up
    robot->disconnect();

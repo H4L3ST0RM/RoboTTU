@@ -8,7 +8,7 @@ require 'json'
 #			   input. The command line type is defined as:
 #			   either c, o, y, or s.
 #			   c - tweets the time of connection to the server
-#			   o - tweets the amount of obstacles dodged
+#			   o - tweets the amount of obstacles collided
 #			   y - tweets the link to the youtube channel
 #	           l/r - tweets the direction instructed
 #			   p - tweets that the robot is being controlled from a mobile device
@@ -24,7 +24,7 @@ tweetContent = ""
 currentTime = Time.now
 #types:
 #	c - time of connection tweet
-#	o - obstacles dodged
+#	o - obstacles collided
 #	y - tweet youtube channel
 #	l/r - left or right instruction
 #   p - mobile controls
@@ -39,7 +39,7 @@ if tweetType == 'y' then
 elsif tweetType == 'c' then #connection
 	tweetContent = "I connected at #{currentTime} #RoboTTU"
 elsif tweetType == 'o' then #obstacles
-	tweetContent = "I avoided #{ARGV[1]} obstacles! #RoboTTU #{currentTime}"
+	tweetContent = "I collided with #{ARGV[1]} obstacle(s)! #RoboTTU #{currentTime}"
 elsif tweetType == 'p' then #phone controls 
 	tweetContent = "#RoboTTU is being controlled from a mobile device! #{currentTime}"
 elsif tweetType == 'l' then #left sensor hit
