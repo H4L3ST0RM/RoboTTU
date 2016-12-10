@@ -75,7 +75,7 @@ def parse(data):
     if data[0] == "TURNLEFT":
         print "received TURNLEFT command"
         Popen(['ruby', 'subroutines/ruby/autoTweet.rb', 'l']) #added
-        Bot.setTurnSpeed(-100)                               #aaron's comments are dumb and don't even include date and who wrote them
+        Bot.setTurnSpeed(-100)                                #aaron's comments are dumb and don't even include date and who wrote them
         time.sleep(1)
         Bot.setTurnSpeed(0)
         Socket.send("RECEIVED\r\n")
