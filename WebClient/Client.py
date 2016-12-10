@@ -1,3 +1,35 @@
+
+Skip to content
+This repository
+
+    Pull requests
+    Issues
+    Gist
+
+    @H4L3ST0RM
+
+4
+3
+
+    2
+
+H4L3ST0RM/RoboTTU
+Code
+Issues 5
+Pull requests 1
+Projects 0
+Wiki
+Pulse
+Graphs
+Settings
+RoboTTU/WebClient/Client.py
+42ef035 43 minutes ago
+@jbubel jbubel Added youtube stream handling to the Client
+@twibird
+@jbubel
+@ATrusty
+@zgrummons
+137 lines (117 sloc) 3.88 KB
 import select
 import socket
 import string
@@ -63,7 +95,11 @@ def parse(data):
     if data[0] == "RECOGNITION":
         print "received RECOGNITION command"
         Socket.send("RECEIVED\r\n")
+<<<<<<< HEAD
+
+=======
     
+>>>>>>> bf8082659e529389494f44b1253e41c953fe6b6b
     if data[0] == "CAMERA":
         if data[1] == "ON":
             print "starting youtube stream"
@@ -133,4 +169,3 @@ while True:
 
         for line in lines:
             parse(line)
-    #
