@@ -113,8 +113,8 @@ while True:
         reconnect()
         continue
     print "connection established"
-    call(['ruby', 'subroutines/ruby/autoTweet.rb', 'c'])
-    call(['ruby', 'subroutines/ruby/autoTweet.rb', 'y'])
+    Popen(['ruby', 'subroutines/ruby/autoTweet.rb', 'c'])
+    Popen(['ruby', 'subroutines/ruby/autoTweet.rb', 'y'])
     ReconnectAttempts = 1
     #
 
