@@ -57,10 +57,10 @@ def parse(data):
         Socket.send("RECEIVED\r\n")
 
     if data[0] == "AVOIDANCE":
-        if data[1] == "ON":
+        if data[1] == "1":
             print "starting obstacle avoidance"
             Popen(['subroutines/cpp/obstacle_avoidance'])
-        if data[1] == "OFF":
+        if data[1] == "0":
             print "stopping obstacle avoidance"
             Popen(['subroutines/cpp/robotReset'])
             #stub
