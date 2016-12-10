@@ -26,10 +26,10 @@ def parse(data):
 
     # stick API calls here
     if data[0] == "FORWARD":
-		print "received FORWARD command"
-		Bot.setForwardSpeed(100)
-		time.sleep(1)
-		Bot.setForwardSpeed(0)
+        print "received FORWARD command"
+        Bot.setForwardSpeed(100)
+	time.sleep(1)
+	Bot.setForwardSpeed(0)
     #    Socket.send("RECEIVED\r\n")
 
     if data[0] == "REVERSE":
@@ -41,7 +41,7 @@ def parse(data):
 
     if data[0] == "TURNLEFT":
         print "received TURNLEFT command"
-		call(['ruby', 'subroutines/ruby/autoTweet.rb', 'l']) #added
+        call(['ruby', 'subroutines/ruby/autoTweet.rb', 'l']) #added
         Bot.setTurnSpeed(-100)
         time.sleep(1)
         Bot.setTurnSpeed(0)
@@ -49,7 +49,7 @@ def parse(data):
 
     if data[0] == "TURNRIGHT":
         print "received TURNRIGHT command"
-		call(['ruby', 'subroutines/ruby/autoTweet.rb', 'r']) #added
+        call(['ruby', 'subroutines/ruby/autoTweet.rb', 'r']) #added
         Bot.setTurnSpeed(100)
         time.sleep(1)
         Bot.setTurnSpeed(0)
