@@ -6,7 +6,6 @@ import RPi.GPIO as GPIO
 
 mode=GPIO.getmode()
 print " mode ="+str(mode)
-GPIO.cleanup()
 
 RightForward = 24
 RightBackward = 26
@@ -54,6 +53,7 @@ def turnLeft(x):
     GPIO.output(LeftBackward, GPIO.LOW)
     GPIO.output(RightForward, GPIO.LOW)
 
+init()
 print "forward motor "
 forward(2)
 time.sleep(1)
